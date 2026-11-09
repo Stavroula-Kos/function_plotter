@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 def number(prompt):
     while True:
         try:
-            return float(input(prompt))
+            return float(input(prompt).replace(",", "."))
         except ValueError:
             print("Please enter a number.")
 
@@ -34,6 +34,10 @@ c = number("Enter c: ")
 
 if a == 0 and b == 0 and c == 0:
     print("Every x is a solution.")
+    raise SystemExit
+
+if a == 0 and b == 0:
+    print("No solution.")
     raise SystemExit
 
 result = roots(a, b, c)
